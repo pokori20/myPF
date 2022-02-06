@@ -23,6 +23,13 @@
 - シフトを確認したいとき
 
 ## 設計書
+ER図
+<https://drive.google.com/file/d/1SnSfgmh7POJ2-auK2ebLB-0QvzNZfjTV/view?usp=sharing>
+テーブル定義書
+<https://docs.google.com/spreadsheets/d/1HFCqg-SrBr293HeMzqS6DBj_IdUxNkafFMkkOzsIagI/edit?usp=sharing>
+アプリケーション詳細設計
+<https://docs.google.com/spreadsheets/d/1BhLLVtydZw2dKTQqCp8bIVYxLDDpxAWUiaAz2rrs2Ro/edit?usp=sharing>
+
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1Tq4Pcm2n1L9BJSErsAftL3VGsyhQywPll2rNQD-EKJ4/edit?usp=sharing>
