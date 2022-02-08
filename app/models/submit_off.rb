@@ -1,0 +1,2 @@
+class SubmitOff < ApplicationRecord
+end
