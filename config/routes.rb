@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   namespace :admin do
    root :to => 'homes#top'
    resources :publics, only: [:index, :new, :edit, :update, :show]
-   resources :shops, only: [:index, :create, :edit, :update]
-   resources :shifts, only: [:show, :index, :create]
-   resources :submit_offs, only: [:update, :index]
-   resources :order_details, only: [:update]
+  resources :shops, only: [:index, :create, :edit, :update]
+  resources :shifts, only: [:show, :index, :create]
+  resources :submit_offs, only: [:update, :index]
+  resources :order_details, only: [:update]
   end
 
     # 従業員用
@@ -18,17 +18,17 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-   scope module: :public do
-    #homesコントローー
+  scope module: :public do
+    #homesコントローラー
     root to: "homes#top"
     #publicsコントローラー
     get 'publics/my_page' => 'publics#show'
     get 'publics/my_page/edit' => 'publics#edit'
     patch 'publics/update' => 'publics#update'
     #shiftsコントローラー
-    resources :shifts,only:[:index, :create, :show]
-   
+    resources :shifts, only: [:show]
+    resources :submit_offs, only: [:new, :create, :update, :comment]
   end
-  #shiftsコントローラー
+
 
 end
