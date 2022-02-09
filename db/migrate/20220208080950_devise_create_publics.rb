@@ -33,7 +33,8 @@ class DeviseCreatePublics < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
       t.string :employee_id, null: false, default: ""
       t.string :name, null: false, default: ""
-
+      t.integer :shop_id
+      t.boolean :is_working, default: true
       t.timestamps null: false
     end
 

@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th>店舗一覧</th>
+      <th>今月のシフト</th>
+      <th>休み希望</th>
+      <th>今月のシフト</th>
+      <th>来月のシフト</th>
+      <th>シフト投稿</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shops.each do |shop| %>
+    <tr>
+      <td><%= shop.shop_name %></td>
+      <td><%= link_to "確認", admin_shift_path(shift) %></td>
+      <td><%= link_to "確認", admin_submit_offs_path(shift) %></td>
+      <td><%= link_to "確認", admin_shift_path(shift) %></td>
+      <td>
+        <div class="form-group">
+          <%= form_with model:@shift, local:true do |f| %>
+            <%= f.attachment_field :image, placeholder: "シフト画像" %>
+            <%= f.submit "投稿",class: "btn btn-secondary" %>
+            <%= f.hidden_field :shop_id, :valu => shop.id %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

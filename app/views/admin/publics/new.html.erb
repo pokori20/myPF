@@ -1,0 +1,24 @@
+  <h2>従業員情報</h2>
+  <%= form_with model:@public, local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :employee_id, "社員ID" %>
+    <%= f.text_field :employee_id, placeholder:"1111" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, "氏名" %>
+    <%= f.text_field :name, placeholder:"1111" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :shop_id, "店名" %>
+    <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--" %> %>
+  </div>
+  <div class="form-group">
+    <%= f.label :勤務ステータス %>
+    <%= f.radio_button :is_working, true %>
+    <%= f.label :is_working, "在職中", value: true %>
+    <%= f.radio_button :is_working, false %>
+    <%= f.label :is_working, "退職済", value: false %>
+  </div>
+    <br/>
+    <%= f.submit "新規登録",class: "btn btn-secondary" %>
+  <% end %>

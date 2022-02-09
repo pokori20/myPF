@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_080959) do
   end
 
   create_table "offs", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "public_id"
+    t.integer "shop_id"
     t.integer "submit_off_id"
     t.date "date"
     t.datetime "created_at", null: false
@@ -39,13 +40,15 @@ ActiveRecord::Schema.define(version: 2022_02_08_080959) do
     t.datetime "remember_created_at"
     t.string "employee_id", default: "", null: false
     t.string "name", default: "", null: false
+    t.integer "shop_id"
+    t.boolean "is_working", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reset_password_token"], name: "index_publics_on_reset_password_token", unique: true
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.integer "shop_name"
+    t.integer "shop_id"
     t.string "image_id"
     t.string "year_month"
     t.datetime "created_at", null: false
@@ -59,7 +62,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_080959) do
   end
 
   create_table "submit_offs", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "public_id"
+    t.integer "shop_id"
     t.string "year_month"
     t.string "remarks"
     t.date "submited_date"
