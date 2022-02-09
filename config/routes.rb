@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :create, :edit, :update]
   resources :shifts, only: [:show, :index, :create]
   resources :submit_offs, only: [:update, :index]
-  resources :order_details, only: [:update]
   end
 
     # 従業員用
