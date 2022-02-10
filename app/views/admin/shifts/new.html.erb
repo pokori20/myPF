@@ -1,0 +1,9 @@
+<h2>シフト投稿</h2>
+
+<%= form_with model: @shift, url: new_admin_shift_path, local:true do |f| %>
+  <div class = "form-group">
+    <%= f.label :"年月" %>
+    <%= f.text_field :year_month %>
+    <%= f.submit '変更を保存' %>
+  </div>
+<% end %>

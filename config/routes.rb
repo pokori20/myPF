@@ -8,7 +8,7 @@ Rails.application.routes.draw do
    root :to => 'homes#top'
    resources :publics, only: [:index, :new, :edit, :update, :show]
   resources :shops, only: [:index, :create, :edit, :update]
-  resources :shifts, only: [:show, :index, :create]
+  resources :shifts, only: [:new, :index, :create,:show]
   resources :submit_offs, only: [:update, :index]
   end
 

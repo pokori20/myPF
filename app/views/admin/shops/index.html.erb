@@ -1,13 +1,15 @@
 <h2>店舗情報変更</h2>
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>店舗名</th><th>従業員</th>
+      <th scope="col"></th>
+      <th scope="col">店舗一覧</th>
     </tr>
   </thead>
   <tbody>
     <% @shops.each do |shop| %>
     <tr>
+      <th scope="row"><%= shop.id %></td>
       <td><%= link_to shop.shop_name, edit_admin_shop_path(shop) %></td>
     </tr>
     <% end %>

@@ -1,9 +1,9 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
     <% if admin_signed_in? %>
-      <%= link_to "LOGO", admin_root_path %>
+      <h2><%= link_to "LOGO", admin_root_path, class: "nav-link text-light" %></h2>
     <% else %>
-      <%= link_to "LOGO", root_path %>
+      <h2><%= link_to "LOGO", root_path, class: "nav-link text-light" %></h2>
     <% end %>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
@@ -12,19 +12,25 @@
             <%= link_to icon('fas','sign-out-alt',"ログアウト"), destroy_public_session_path, method: :delete ,class: 'btn btn-outline-light mx-3 my-1'%>
           </li>
          <% elsif admin_signed_in? %>
-           <li class="nav-item">
-             <%= link_to icon('fas','fas fa-gear',"店舗情報変更"), admin_shops_path,class: 'btn btn-outline-light mx-3 my-1'%>
+           <li class="nav-item mx-5 my-2 text-light">
+             <h4><%= Date.today %></h4>
            </li>
            <li class="nav-item">
-             <%= link_to icon('fas','fa-calender',"シフト一覧"), admin_shifts_path, class:'btn btn-outline-light mx-3 my-1'%>
+             <%= link_to icon('fas','fas fa-gear',"シフト投稿"), new_admin_shift_path, class: 'btn btn-outline-light mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete,class: 'btn btn-outline-light mx-3 my-1'%>
+             <%= link_to icon('fas','fas fa-gear',"店舗一覧"), admin_shops_path, class: 'btn btn-outline-light mx-3 my-1' %>
+           </li>
+           <li class="nav-item">
+             <%= link_to icon('fas','fa-calender',"シフト一覧"), admin_shifts_path, class:'btn btn-outline-light mx-3 my-1' %>
+           </li>
+           <li class="nav-item">
+             <%= link_to icon('fas','sign-out-alt',"ログアウト"),destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light mx-3 my-1' %>
            </li>
          <% else %>
 
           <% end %>
         </ul>
-      </div>    
+      </div>
   </nav>
 </header>
