@@ -7,4 +7,8 @@ class Admin::ShiftsController < ApplicationController
   def index
     @shifts = Shift.all
   end
+  
+  def show
+    @shift = Shift.where(shop_id: params[:id], year_month: params[:year_month])
+  end
 end

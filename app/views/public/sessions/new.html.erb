@@ -7,7 +7,7 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field my-3">
             <%= f.label :"社員ID" %><br />
-            <%= f.text_field :employee_id, autofocus: true, autocomplete: "email", class: "form-control"%>
+            <%= f.text_field :employee_id, autofocus: true, class: "form-control" %>
           </div>
           <div class="field　my-3">
             <%= f.label :"パスワード" %><br />
