@@ -1,5 +1,5 @@
 class Admin::ShopsController < ApplicationController
-
+  before_action :authenticate_admin!
   def index
     @shops = Shop.all
     @shop = Shop.new

@@ -1,5 +1,5 @@
 class Admin::ShiftsController < ApplicationController
-  
+  before_action :authenticate_admin!
   def new
     @shift = Shift.new
   end
