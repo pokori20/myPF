@@ -3,16 +3,18 @@ class Public < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:employee_id]
-           
-  #No use email
+  validates :employee_id, presence: true, uniqueness: true
+  has_many :offs
+  belongs_to :shop
+  #mail無しログイン実装のため
   def email_required?
     false
   end
-  
+
   def email_changed
     false
   end
-  
+
   def will_save_change_to_email?
     false
   end

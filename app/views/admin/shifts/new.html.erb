@@ -4,7 +4,15 @@
     <%= form_with model: @shift, url: new_admin_shift_path, local:true do |f| %>
       <div class = "form-group text-center">
         <%= f.label :"年月" %>
-        <%= f.date_select :year_month,use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year+10, discard_day:true %>
+        <%= f.date_select :year_month,use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year+10, discard_day:true, style: "width:100%" %>
+      </div>
+      <div class = "form-group text-center">
+        <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, { prompt: "店舗を選択してください" } %>
+      </div>
+      <div class = "form-group text-center">
+        <%= f.attachment_field :image, placeholder: "シフト画像" %>
+      </div>
+      <div class = "form-group text-center">
         <%= f.submit '変更を保存' %>
       </div>
     <% end %>

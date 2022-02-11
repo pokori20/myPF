@@ -3,9 +3,8 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:employee_id]
-  validates_uniqueness_of :employee_id
-  validates_presence_of :employee_id
-    #No use email
+         validates :employee_id, presence: true, uniqueness: true
+  #mail無しログイン実装のため
   def email_required?
     false
   end
