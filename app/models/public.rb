@@ -4,6 +4,13 @@ class Public < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:employee_id]
   validates :employee_id, presence: true, uniqueness: true
+  with_options presence: true do
+    validates :employee_id
+    validates :shop_id
+    validates :name
+    validates :password
+  end
+  enum role: { general: 1, admin: 99 }
   has_many :offs
   belongs_to :shop
   #mail無しログイン実装のため

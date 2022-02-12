@@ -1,0 +1,12 @@
+<h2><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= Time.current.next_month.strftime("%-m")%>月</th>
+      <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+      <th><%= date.strftime("%-d") %></th>
+      <th><%= ["日", "月", "火", "水", "木", "金", "土"][date.wday] %></th>
+      <% end %>
+    </tr>
+  </thead>
+</table>
