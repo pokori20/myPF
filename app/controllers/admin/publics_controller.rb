@@ -8,8 +8,10 @@ class Admin::PublicsController < ApplicationController
   def create
     @public = Public.new(public_params)
     if @public.save
+      flash[:notice] = "従業員を追加しました"
       redirect_to admin_publics_path
     else
+      flash.now[:alert] = "入力内容を確認してください"
       render :new
     end
   end

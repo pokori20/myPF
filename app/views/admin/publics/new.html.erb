@@ -1,18 +1,20 @@
-  <h2>従業員情報</h2>
-  <%= form_with model:@public, local:true do |f| %>
-  <div class="form-group">
+ <div class ="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mt-5 mx-auto">
+  <h2 class="text-center"><strong>従業員情報</strong></h2>
+  <%= form_with model: @public, url: admin_publics_path, local:true do |f| %>
+  <div class="form-group text-center">
     <%= f.label :employee_id, "社員ID" %>
     <%= f.text_field :employee_id, placeholder:"1111" %>
   </div>
-  <div class="form-group">
+  <div class="form-group text-center">
     <%= f.label :name, "氏名" %>
-    <%= f.text_field :name, placeholder:"1111" %>
+    <%= f.text_field :name, placeholder:"令和太郎" %>
   </div>
-  <div class="form-group">
+  <div class="form-group text-center">
     <%= f.label :shop_id, "店名" %>
-    <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--" %> %>
+    <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--" %>
   </div>
-  <div class="form-group">
+  <div class="form-group text-center">
     <%= f.label :勤務ステータス %>
     <%= f.radio_button :is_working, true %>
     <%= f.label :is_working, "在職中", value: true %>
@@ -20,5 +22,9 @@
     <%= f.label :is_working, "退職済", value: false %>
   </div>
     <br/>
-    <%= f.submit "新規登録",class: "btn btn-secondary" %>
+  <div class="form-group text-center">
+    <%= f.submit "新規登録",class: "btn btn-secondary " %>
+  </div>
   <% end %>
+    </div>
+</div>
