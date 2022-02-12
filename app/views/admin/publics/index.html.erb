@@ -1,4 +1,5 @@
-<h2><%= @shop.shop_name %> 従業員一覧</h2>
+   <% @publics.each do |public| %>
+<h2><%#= public.shop.shop_name %> 従業員一覧</h2>
 <table>
   <thead>
     <tr>
@@ -6,11 +7,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @shop.publics.each do |public| %>
     <tr>
       <td><%= public.id %></td>
       <td><%= public.name %></td>
-      <td><%= public.status %></td>
+      <td>
+        <% if public.is_working? %>
+          <div>在職中</div>
+        <% else %>
+          <div>退職済</div>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

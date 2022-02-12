@@ -73,3 +73,8 @@ gem "enum_help"
 gem 'simple_calendar', '~> 2.0'
 gem 'whenever', require: false
 gem 'rubocop', '~> 0.82.0', require: false
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

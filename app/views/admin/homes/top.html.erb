@@ -12,8 +12,8 @@
     <tr>
       <th scope="row"><%= shop.shop_name %></td>
       <td><%= link_to "確認", admin_shift_path(shop.id,{year_month: Time.current.strftime("%Y-%m")}) %></td>
-      <td><%#= link_to "確認", admin_submit_offs_path(submit_off.shop.id) %></td>
-      <td><%#= link_to "確認", admin_shift_path(shop.id,{year_month: Time.next_month.strftime("%Y-%m")}) %></td>
+      <td><%= link_to "確認", admin_submit_offs_path(shop.id) %></td>
+      <td><%= link_to "確認", admin_shift_path(shop.id,{year_month: Time.current.next_month.strftime("%Y-%m")}) %></td>
     </tr>
     <% end %>
   </tbody>

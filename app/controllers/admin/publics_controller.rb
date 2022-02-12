@@ -15,7 +15,7 @@ class Admin::PublicsController < ApplicationController
   end
 
   def index
-    @shop = Shop.find(params[:id])
+    @publics = Public.all
   end
 
   private
