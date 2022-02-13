@@ -1,15 +1,17 @@
-   <% @publics.each do |public| %>
+
 <h2><%#= public.shop.shop_name %> 従業員一覧</h2>
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>社員ID</th><th>氏名</th><th>ステータス</th>
+      <th>社員ID</th><th>氏名</th><th>所属店舗</th><th>ステータス</th><th>編集</th>
     </tr>
   </thead>
   <tbody>
+    <% @publics.each do |public| %>
     <tr>
-      <td><%= public.id %></td>
+      <td><%= public.employee_id %></td>
       <td><%= public.name %></td>
+      <td><%#= public.shop.shop_name %></td>
       <td>
         <% if public.is_working? %>
           <div>在職中</div>
@@ -17,6 +19,7 @@
           <div>退職済</div>
         <% end %>
       </td>
+      <td><%= link_to "編集", edit_admin_public_path(public.id) %></td>
     </tr>
     <% end %>
   </tbody>

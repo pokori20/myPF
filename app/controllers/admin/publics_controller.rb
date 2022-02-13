@@ -7,7 +7,7 @@ class Admin::PublicsController < ApplicationController
 
   def create
     @public = Public.new(public_params)
-    if @public.save
+    if @public.save!
       flash[:notice] = "従業員を追加しました"
       redirect_to admin_publics_path
     else
@@ -19,9 +19,24 @@ class Admin::PublicsController < ApplicationController
   def index
     @publics = Public.all
   end
+  
+  def edit
+    @public = Public.find(params[:id])
+  end
+  
+  def update
+    @public = Public.find(params[:id])
+    if @public.update(public_params)
+      flash[:notice] = "従業員情報を変更しました"
+      redirect_to admin_publics_path
+    else
+      flash.now[:alert] = "入力内容を確認してください"
+      render :edit
+    end
+  end
 
   private
   def public_params
-    params.require(:public).permit(:name, :employee_id, :shop_id , :is_working)
+    params.require(:public).permit(:name, :employee_id, :shop_id , :is_working, :password)
   end
 end

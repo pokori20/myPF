@@ -3,8 +3,8 @@ class Shift < ApplicationRecord
   belongs_to :shop
   
   with_options presence: true do
-  validates :year_month
-  validates :shop_id
-  validates :image
+    validates :year_month
+    validates :shop_id
+    validates :image
   end
 end
