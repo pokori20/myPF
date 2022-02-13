@@ -25,7 +25,7 @@ class Admin::PublicsController < ApplicationController
   end
   
   def update
-    @public = public.find(params[:id])
+    @public = Public.find(params[:id])
     if @public.update(public_params)
       flash[:notice] = "従業員情報を変更しました"
       redirect_to admin_publics_path
