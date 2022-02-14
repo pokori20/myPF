@@ -79,3 +79,4 @@ group :production do
   gem 'mysql2'
 end
 gem 'cancancan'
+gem 'pry-rails'

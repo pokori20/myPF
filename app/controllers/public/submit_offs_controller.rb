@@ -7,5 +7,13 @@ class Public::SubmitOffsController < ApplicationController
   
   def create
     @off = Off.new(off_params)
+    @off.save
+    redirect_back(fallback_location: root_path)
   end
+  
+  private
+  def off_params
+    params.require(:off).permit(:date)
+  end
+  
 end
