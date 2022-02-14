@@ -22,14 +22,16 @@
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
+              <% if Off.exists?(public_id:current_public.id,date: day) %>
+              <!--休み希望申請済の場合、取消を配置-->
+              <% else %>
+              <!--休み希望未申請の場合、申請を配置-->
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
-                <%= check_box_tag :check %>
                 <%= form_with model: @off, url: submit_offs_path,method: :post, local:true do |f| %>
-                  <% if check = 1 %>
                     <%= f.hidden_field :date, value: day %>
-                    <% end %>
-                  <%= f.submit :提出%>
+                  <%= f.submit :申請%>
                 <% end %>
+              <% end %>
               <% end %>
             <% end %>
           <% end %>
