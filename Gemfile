@@ -80,3 +80,4 @@ group :production do
 end
 gem 'cancancan'
 gem 'pry-rails'
+gem 'rails-i18n', '~> 5.1' 

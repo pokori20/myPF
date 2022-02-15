@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     patch 'publics/update' => 'publics#update'
     #shiftsコントローラー
     resources :shifts, only: [:show]
-    resources :submit_offs, only: [:new, :create, :update, :comment]
+    resources :submit_offs, only: [:new, :create, :comment]
+    resource :submit_offs, only: [:destroy], as: 'delete_submit_off'
   end
 
 
