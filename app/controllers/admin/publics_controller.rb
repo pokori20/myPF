@@ -19,11 +19,11 @@ class Admin::PublicsController < ApplicationController
   def index
     @publics = Public.all
   end
-  
+
   def edit
     @public = Public.find(params[:id])
   end
-  
+
   def update
     @public = Public.find(params[:id])
     if @public.update(public_params)
