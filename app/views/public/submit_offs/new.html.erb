@@ -2,9 +2,7 @@
   <div class = "col text-center">
     <h2><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
     <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
-    <%= form_with model: @off, url: admin_shops_path, local:true do |f| %>
+      <%= date.day %>
     <% end %>
   </div>
 </div>

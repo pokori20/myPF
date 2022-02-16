@@ -4,7 +4,7 @@ class CreateOffs < ActiveRecord::Migration[5.2]
       t.integer :public_id
       t.integer :shop_id
       t.integer :submit_off_id
-      t.date :date
+      t.string :date
 
       t.timestamps
     end

@@ -1,6 +1,7 @@
-<h2>所属店</h2>
-<h2>今月のシフト</h2>
-<h2>来月のシフト</h2>
+<h2>所属店<%= current_public.shop.shop_name %></h2>
+<h2><%= link_to "今月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.strftime("%Y-%m")}) %></h2>
+<h2><%= link_to "来月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.next_month.strftime("%Y-%m")}) %></h2>
 <h2><%= link_to "休み希望",new_submit_off_path %></h2>
+
 
 <p>休み希望の締め切りは毎月20日です。</p>
