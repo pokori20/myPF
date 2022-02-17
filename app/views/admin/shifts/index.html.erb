@@ -19,8 +19,8 @@
       <tbody>
         <% @shifts.each do |shift| %>
         <tr>
-          <td><%= shift.year_month.strftime("%Y-%m") %>月度</td>
-          <td><%= link_to shift.shop.shop_name, admin_shift_path(shift.id,{year_month: shift.year_month.strftime("%Y-%m")}) %></td>
+          <td><%= shift.year_month %>月度</td>
+          <td><%= link_to shift.shop.shop_name, admin_shift_path(shift.shop_id,{year_month: shift.year_month}) %></td>
         </tr>
         <% end %>
       </tbody>

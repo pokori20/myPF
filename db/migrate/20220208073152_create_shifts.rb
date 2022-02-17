@@ -3,7 +3,7 @@ class CreateShifts < ActiveRecord::Migration[5.2]
     create_table :shifts do |t|
        t.integer :shop_id
       t.string :image_id
-      t.date :year_month
+      t.string :year_month
       t.timestamps
     end
   end

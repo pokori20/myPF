@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_063457) do
   create_table "shifts", force: :cascade do |t|
     t.integer "shop_id"
     t.string "image_id"
-    t.date "year_month"
+    t.string "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,28 +1,30 @@
 <div class="row">
-  <h2>店舗情報変更</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">店舗一覧</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @shops.each do |shop| %>
-      <tr>
-        <th scope="row"><%= shop.id %></td>
-        <td><%= link_to shop.shop_name, edit_admin_shop_path(shop) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= form_with model: @shop, url: admin_shops_path, local:true do |f| %>
-    <div class = "form-group">
-      <%= f.label :shop_name, "店舗名" %>
-      <%= f.text_field :shop_name %>
-    </div>
-    <div class = "form-group">
-      <%= f.submit '店舗を追加',class: "btn btn-success" %>
-    </div>
-  <% end %>
+  <div class="col-lg-6 mt-5 mx-auto">
+    <h2>店舗情報変更</h2>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">店舗一覧</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shops.each do |shop| %>
+        <tr>
+          <th scope="row"><%= shop.id %></td>
+          <td><%= link_to shop.shop_name, edit_admin_shop_path(shop) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= form_with model: @shop, url: admin_shops_path, local:true do |f| %>
+      <div class = "form-group text-center">
+        <%= f.label :shop_name, "店舗名" %>
+        <%= f.text_field :shop_name %>
+      </div>
+      <div class = "form-group text-center">
+        <%= f.submit '店舗を追加',class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
 </div>

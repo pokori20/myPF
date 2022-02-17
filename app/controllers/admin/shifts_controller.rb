@@ -6,6 +6,8 @@ class Admin::ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
+    # データをdate型で取得していないからTime.zone.parseでdate型に変換.strftimeで文字列で保存
+    @shift.year_month = Time.zone.parse(@shift.year_month).strftime("%Y-%m")
     if @shift.save
       flash[:notice] = "シフトを投稿しました"
       redirect_back(fallback_location: root_path)
@@ -20,6 +22,7 @@ class Admin::ShiftsController < ApplicationController
   end
 
   def show
+    # whereは複数データを取得。一つしかない場合はfind_byでデータを取得する find_byで条件に合致するものが複数見つかった場合は先に見つかった1件のみを表示
     @shift = Shift.where(shop_id: params[:id], year_month: params[:year_month])
   end
 
