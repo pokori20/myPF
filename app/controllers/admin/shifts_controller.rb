@@ -6,6 +6,7 @@ class Admin::ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
+    binding.pry
     # データをdate型で取得していないからTime.zone.parseでdate型に変換.strftimeで文字列で保存
     @shift.year_month = Time.zone.parse(@shift.year_month).strftime("%Y-%m")
     if @shift.save

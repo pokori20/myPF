@@ -1,8 +1,8 @@
 class Admin::SubmitOffsController < ApplicationController
   before_action :authenticate_admin!
-  def index
+  def show
     # @submit_offs = SubmitOff.where(shop_id: params[:id])
-    @publics = Public.all
+    @publics = Public.where(shop_id: params[:id])
   end
 
   private

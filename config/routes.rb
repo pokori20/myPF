@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    resources :publics, only: [:index, :create, :new, :edit, :update, :show]
   resources :shops, only: [:index, :create, :edit, :update]
   resources :shifts, only: [:new, :index, :create, :show]
-  resources :submit_offs, only: [:update, :index]
+  resources :submit_offs, only: [:update, :show]
   end
 
     # 従業員用
