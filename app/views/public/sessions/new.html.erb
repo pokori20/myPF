@@ -5,11 +5,11 @@
         <h2><strong>ログイン</strong></h2>
         
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field my-3">
+          <div class="field my-4">
             <%= f.label :"社員ID" %><br />
             <%= f.text_field :employee_id, autofocus: true, class: "form-control" %>
           </div>
-          <div class="field　my-3">
+          <div class="field　my-4">
             <%= f.label :"パスワード" %><br />
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
@@ -17,10 +17,6 @@
             <%= f.submit "ログイン" %>
           </div>
         <% end %>
-        <div>
-          <h6 class="text-center font-weight-bold">初めてのログインの方</h6>
-          <p class="text-center"><%= link_to "こちら", new_public_registration_path %>からログインしてください。</p>
-        </div>
      </div>
     </div>
   </div>

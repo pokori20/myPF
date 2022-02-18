@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   end
 
     # 従業員用
-    devise_for :publics, skip: [:passwords] , controllers: {
-    registrations: "public/registrations",
+    devise_for :publics, skip: [:passwords, :registrations] , controllers: {
     sessions: 'public/sessions'
   }
   scope module: :public do
