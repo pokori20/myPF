@@ -3,12 +3,16 @@ class Admin::ShiftsController < ApplicationController
   def new
     @shift = Shift.new
   end
+  
+  def index
+    @shifts = Shift.all
+  end
 
   def create
     @shift = Shift.new(shift_params)
-    binding.pry
+    # binding.pry
     # データをdate型で取得していないからTime.zone.parseでdate型に変換.strftimeで文字列で保存
-    @shift.year_month = Time.zone.parse(@shift.year_month).strftime("%Y-%m")
+    @shift.year_month = (shift_params["year_month(1i)"]) + "-" + (shift_params["year_month(2i)"])
     if @shift.save
       flash[:notice] = "シフトを投稿しました"
       redirect_back(fallback_location: root_path)
@@ -16,10 +20,6 @@ class Admin::ShiftsController < ApplicationController
       flash.now[:alert] = "入力内容を確認してください"
       render :new
     end
-  end
-
-  def index
-    @shifts = Shift.all
   end
 
   def show
