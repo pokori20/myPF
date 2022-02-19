@@ -1,7 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%#= link_to t('simple_calendar.previous', default: '先月'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%#= t('date.month_names')[start_date.month] %> <%= start_date.year %>年</span>
+    <%= link_to t('simple_calendar.previous', default: '先月'), calendar.url_for_previous_view %>
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %>年</span>
     <%= link_to t('simple_calendar.next', default: '来月>>'), calendar.url_for_next_view %>
   </div>
 
@@ -19,14 +19,13 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-              <% if Off.exists?(public_id:current_public.id, date: day) %>
+              <%# if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <%# capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <%# else %>
+              <% if Off.exists?(public_id: current_public.id, date: day) %>
               <!--休み希望申請済の場合、取消を配置-->
                 <% passed_block.call day, sorted_events.fetch(day, []) %></br>
-                <%= link_to "取消", delete_submit_off_path({date: day}), method: :delete, class: "btn btn-primary" %>
-                <%# binding.pry %>
+                <%= link_to "〇", delete_submit_off_path({date: day}), method: :delete, class: "btn btn-primary" %>
               <% else %>
               <!--休み希望未申請の場合、申請を配置-->
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
@@ -34,7 +33,7 @@
                     <%= f.hidden_field :date, value: day %>
                   <%= f.submit :申請 %>
                 <% end %>
-              <% end %>
+              <%# end %>
               <% end %>
             <% end %>
           <% end %>

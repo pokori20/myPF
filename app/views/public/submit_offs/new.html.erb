@@ -1,7 +1,16 @@
 <div class = "row">
   <div class = "col text-center">
     <h2><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
+    <p>
+      休み希望を申請する場合は申請をクリックしてください。
+      </br>申請を取り消す場合は〇をクリックしてください。
+    </p>
     <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+    
+    
+    <%= month_calendar(start_date: Time.current.next_month.strftime("%Y-%m-%d")) do |date| %>
       <%= date.day %>
     <% end %>
   </div>

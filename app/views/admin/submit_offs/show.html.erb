@@ -16,6 +16,13 @@
     <% @publics.each do |public| %>
     <tr>
       <th nowrap><%= public.name %></th>
+      <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+        <td>
+            <% if Off.find_by(public_id: public.id, date: date.strftime("%Y-%m-%d")) %>
+              休み
+            <% end %>
+        </td>
+      <% end %>
     </tr>
     <% end %>
     <!--<tr>-->
