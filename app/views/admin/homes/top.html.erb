@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-lg-10 mx-auto">
-    <table class="table mt-5">
-      <thead>
+  <div class="col-lg-10 mt-5 mx-auto">
+    <table class="table mt-5 h-75">
+      <thead class="bg-success text-center">
         <tr>
           <th scope="col">店舗一覧</th>
           <th scope="col">今月のシフト</th>
-          <th scope="col">休み希望</th>
+          <th scope="col">  休み希望 </th>
           <th scope="col">来月のシフト</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <% @shops.each do |shop| %>
         <tr>
           <th scope="row"><%= shop.shop_name %></td>

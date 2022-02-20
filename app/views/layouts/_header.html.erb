@@ -1,9 +1,13 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
     <% if admin_signed_in? %>
-      <h2><%= link_to "LOGO", admin_root_path, class: "nav-link text-light" %></h2>
+      <%= link_to admin_root_path do %>
+        <%= image_tag 'trtakedrug.png',size:'250x60' %>
+      <% end %>
     <% else %>
-      <h2><%= link_to "LOGO", root_path, class: "nav-link text-light" %></h2>
+      <%= link_to root_path do %>
+        <%= image_tag 'trtakedrug.png',size:'250x60' %>
+      <% end %>
     <% end %>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
