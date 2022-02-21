@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-7 mx-auto">
-    <h2 class="mt-5">シフト一覧</h2>
+    <h1 class="mt-5 text-center">シフト一覧</h1>
       <!--<div class="search_form mx-auto mt-3">-->
         <%#= form_with url: search_path, method: :get, local:true do |f| %>
         <%#= f.text_field :content %>
@@ -11,7 +11,7 @@
         <%# end %>
       <!--</div>-->
     <table class="table mt-4">
-      <thead>
+      <thead class="table-info">
         <tr>
           <th>月度</th><th>店舗名</th>
         </tr>
@@ -19,7 +19,7 @@
       <tbody>
         <% @shifts.each do |shift| %>
         <tr>
-          <td><%= shift.year_month %>月度</td>
+          <td><strong><%= shift.year_month %>月度</strong></td>
           <td><%= link_to shift.shop.shop_name, admin_shift_path(shift.shop_id,{year_month: shift.year_month}) %></td>
         </tr>
         <% end %>

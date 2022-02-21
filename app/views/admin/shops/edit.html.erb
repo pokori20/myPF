@@ -3,7 +3,7 @@
     <h2 class="text-center mt-5">店舗名編集</h2>
     <%= form_with model: @shop, url: admin_shop_path, local:true do |f| %>
       <div class = "form-group mt-5">
-        <%= f.label :shop_name, "店舗名" %>
+        <%= f.label :shop_name, "店舗名"%>
         <%= f.text_field :shop_name %></br>
         <%= f.submit '変更を保存',class: "btn btn-success mt-5" %>
       </div>
