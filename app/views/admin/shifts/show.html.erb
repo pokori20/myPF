@@ -3,7 +3,7 @@
     <!--whereで取得する場合はeach文にする。-->
     <% @shift.each do |shift| %>
         <h2 class="mt-5"><%= shift.shop.shop_name %><%= shift.year_month %>月度シフト</h2>
-        <%= attachment_image_tag shift, :image, :fill, 2200, 600, format:'jpg', fallback:"no_image.jpg",class: "text-left mt-5" %>
+        <%= attachment_image_tag shift, :image, :fill, 1240, 400, format:'jpg', fallback:"no_image.jpg",class: "text-left mt-5" %>
     <% end %>
   </div>
 </div>

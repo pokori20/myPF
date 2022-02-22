@@ -5,7 +5,7 @@ class Admin::ShiftsController < ApplicationController
   end
   
   def index
-    @shifts = Shift.all
+    @shifts = Shift.includes(:shop).page(params[:page]).per(6)
   end
 
   def create

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'searches/search'
+  end
     # 管理者用
     devise_for :admin, skip: [:passwords] , controllers: {
     registrations: "admin/registrations",
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :create, :edit, :update]
   resources :shifts, only: [:new, :index, :create, :show]
   resources :offs, only: [:show]
+  get '/search', to: 'searches#search'
   end
 
     # 従業員用

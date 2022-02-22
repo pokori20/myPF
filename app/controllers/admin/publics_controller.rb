@@ -17,7 +17,7 @@ class Admin::PublicsController < ApplicationController
   end
 
   def index
-    @publics = Public.all
+    @publics = Public.includes(:shop)
   end
 
   def edit
