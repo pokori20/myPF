@@ -6,7 +6,7 @@
   </h5>
 
   <table class="table table-striped">
-    <thead>
+    <thead class="calendar-thead">
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
           <th class="text-center"><%= t('date.abbr_day_names')[day.wday] %></th>
