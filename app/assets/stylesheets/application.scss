@@ -26,3 +26,14 @@ body{
 footer{
   margin-top:auto;
 }
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination span{
+  text-align: center;
+  width: 50px;
+  border: solid 1px black;
+  color: rgb(197, 20, 159);
+}

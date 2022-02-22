@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'searches/search'
+  end
     # 管理者用
     devise_for :admin, skip: [:passwords] , controllers: {
     registrations: "admin/registrations",
@@ -9,7 +12,8 @@ Rails.application.routes.draw do
    resources :publics, only: [:index, :create, :new, :edit, :update, :show]
   resources :shops, only: [:index, :create, :edit, :update]
   resources :shifts, only: [:new, :index, :create, :show]
-  resources :submit_offs, only: [:update, :show]
+  resources :offs, only: [:show]
+  get '/search', to: 'searches#search'
   end
 
     # 従業員用
@@ -25,8 +29,8 @@ Rails.application.routes.draw do
     patch 'publics/update' => 'publics#update'
     #shiftsコントローラー
     resources :shifts, only: [:show]
-    resources :submit_offs, only: [:new, :create, :comment]
-    resource :submit_offs, only: [:destroy], as: 'delete_submit_off'
+    resources :offs, only: [:new, :create, :comment]
+    resource :offs, only: [:destroy], as: 'delete_off'
   end
 
 
