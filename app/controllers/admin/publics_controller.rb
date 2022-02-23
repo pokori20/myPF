@@ -7,7 +7,7 @@ class Admin::PublicsController < ApplicationController
 
   def create
     @public = Public.new(public_params)
-    if @public.save!
+    if @public.save
       flash[:notice] = "従業員を追加しました"
       redirect_to admin_publics_path
     else
@@ -17,7 +17,7 @@ class Admin::PublicsController < ApplicationController
   end
 
   def index
-    @publics = Public.includes(:shop)
+    @publics = Public.includes(:shop).page(params[:page]).per(8)
   end
 
   def edit

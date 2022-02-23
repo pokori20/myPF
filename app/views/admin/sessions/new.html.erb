@@ -5,12 +5,12 @@
         <h2><strong>管理者ログイン</strong></h2>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
+          <div class="field my-4">
             <%= f.label :"社員ID" %><br />
             <%= f.text_field :employee_id, autofocus: true, class: "form-control" %>
           </div>
 
-          <div class="field">
+          <div class="field my-4">
             <%= f.label :"パスワード" %><br />
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
@@ -18,12 +18,12 @@
             <%= f.submit "ログイン" %>
           </div>
         <% end %>
-        <div class="field">
-          <%= link_to 'ゲストログイン（閲覧用）', admin_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+        <div class="field mt-5">
+          <%= link_to 'ゲストログイン（閲覧用）', admin_guest_sign_in_path, class: "btn btn-secondary btn-block mb-3 sign_in", method: :post %>
         </div>
         <div>
           <h6 class="text-center font-weight-bold">初めてのログインの方</h6>
-          <p class="text-center"><%= link_to "こちら", new_admin_registration_path %>からログインしてください。</p>
+          <p class="text-center"><%= link_to "こちら", new_admin_registration_path %>から登録を行ってください。</p>
         </div>
      </div>
     </div>
