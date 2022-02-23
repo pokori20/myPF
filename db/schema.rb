@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2022_02_12_063457) do
   create_table "offs", force: :cascade do |t|
     t.integer "public_id"
     t.integer "shop_id"
-    t.integer "submit_off_id"
     t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,16 +57,6 @@ ActiveRecord::Schema.define(version: 2022_02_12_063457) do
 
   create_table "shops", force: :cascade do |t|
     t.string "shop_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "submit_offs", force: :cascade do |t|
-    t.integer "public_id"
-    t.integer "shop_id"
-    t.string "year_month"
-    t.string "remarks"
-    t.date "submited_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

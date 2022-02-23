@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :create, :edit, :update]
   resources :shifts, only: [:new, :index, :create, :show]
   resources :offs, only: [:show]
+  #検索機能
   get '/search', to: 'searches#search'
+  post '/guest_sign_in', to: 'guests#guest_sign_in'
   end
 
     # 従業員用
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     resources :shifts, only: [:show]
     resources :offs, only: [:new, :create, :comment]
     resource :offs, only: [:destroy], as: 'delete_off'
+    post '/guest_sign_in', to: 'guests#guest_sign_in'
   end
 
 
