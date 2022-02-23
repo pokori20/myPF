@@ -5,7 +5,8 @@ class Admin::ShiftsController < ApplicationController
   end
   
   def index
-    @shifts = Shift.includes(:shop).page(params[:page]).per(6)
+    #投稿月度が近い順に表示するようにソート
+    @shifts = Shift.order("year_month DESC").includes(:shop).page(params[:page]).per(6)
   end
 
   def create
