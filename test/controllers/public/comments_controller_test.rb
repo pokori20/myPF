@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubmitOffTest < ActiveSupport::TestCase
+class Public::CommentsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

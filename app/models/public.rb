@@ -10,6 +10,7 @@ class Public < ApplicationRecord
   end
   enum role: { general: 1, admin: 99 }
   has_many :offs
+  has_many :comments
   belongs_to :shop
   #mail無しログイン実装のため
   def email_required?

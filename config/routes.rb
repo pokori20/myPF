@@ -31,9 +31,11 @@ Rails.application.routes.draw do
     patch 'publics/update' => 'publics#update'
     #shiftsコントローラー
     resources :shifts, only: [:show]
-    resources :offs, only: [:new, :create, :comment]
+    resources :offs, only: [:new, :create]
     resource :offs, only: [:destroy], as: 'delete_off'
     post '/guest_sign_in', to: 'guests#guest_sign_in'
+    #Commentコントローラー
+    resources :comments, only: [:new, :create, :destroy ,:update]
   end
 
 

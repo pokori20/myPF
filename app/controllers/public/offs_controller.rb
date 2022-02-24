@@ -20,6 +20,9 @@ class Public::OffsController < ApplicationController
     flash[:alert] = "休み希望を取り消しました"
     redirect_back(fallback_location: root_path)
   end
+  
+  def comment
+  end
 
   private
   def off_params

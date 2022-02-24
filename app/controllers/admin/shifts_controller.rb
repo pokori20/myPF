@@ -6,6 +6,7 @@ class Admin::ShiftsController < ApplicationController
   
   def index
     #投稿月度が近い順に表示するようにソート
+    #sqliteではorder.("year_month")で問題ないがMySQlではyear_monthだけではどのカラムか特定できずエラーが出ていたため、shifts.year_monthに
     @shifts = Shift.order("shifts.year_month DESC").includes(:shop).page(params[:page]).per(6)
   end
 
