@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_public!
   def new
     #ログインユーザーがコメントを投稿済かどうかでcreateかupdate用の変数にするか分岐
     if Comment.exists?(public_id: current_public.id, year_month: Time.current.next_month.strftime("%Y-%-m"))
