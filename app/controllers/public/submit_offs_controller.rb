@@ -17,7 +17,7 @@ class Public::SubmitOffsController < ApplicationController
     # @submit_off.save
     redirect_back(fallback_location: root_path)
   end
-  
+
   def destroy
     @off = Off.find_by(date: params[:date])
     @off.destroy
@@ -26,6 +26,7 @@ class Public::SubmitOffsController < ApplicationController
   end
 
   private
+
   def off_params
     params.require(:off).permit(:date)
   end

@@ -1,5 +1,5 @@
 class Public::OffsController < ApplicationController
-    before_action :authenticate_public!
+  before_action :authenticate_public!
 
   def new
     @off = Off.new
@@ -13,18 +13,19 @@ class Public::OffsController < ApplicationController
     flash[:notice] = "休み希望を追加しました"
     redirect_back(fallback_location: root_path)
   end
-  
+
   def destroy
     @off = Off.find_by(date: params[:date])
     @off.destroy
     flash[:alert] = "休み希望を取り消しました"
     redirect_back(fallback_location: root_path)
   end
-  
+
   def comment
   end
 
   private
+
   def off_params
     params.require(:off).permit(:date)
   end

@@ -12,7 +12,7 @@ class Public < ApplicationRecord
   has_many :offs
   has_many :comments
   belongs_to :shop
-  #mail無しログイン実装のため
+  # mail無しログイン実装のため
   def email_required?
     false
   end

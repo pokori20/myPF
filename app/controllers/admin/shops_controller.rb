@@ -16,11 +16,11 @@ class Admin::ShopsController < ApplicationController
       render :index
     end
   end
-  
+
   def edit
     @shop = Shop.find(params[:id])
   end
-  
+
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)

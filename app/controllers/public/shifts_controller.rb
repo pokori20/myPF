@@ -3,7 +3,9 @@ class Public::ShiftsController < ApplicationController
   def show
     @shift = Shift.find_by(shop_id: params[:id], year_month: params[:year_month])
   end
+
   private
+
   def shift_params
     params.require(:shift).permit(:year_month, :shop_name, :image)
   end

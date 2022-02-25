@@ -3,5 +3,4 @@ class Admin::OffsController < ApplicationController
   def show
     @publics = Public.where(shop_id: params[:id])
   end
-  
 end
