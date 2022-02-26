@@ -1,30 +1,32 @@
- <div class ="row">
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mt-5 mx-auto">
-    <h2 class="text-center"><strong>従業員情報</strong></h2>
-      <%= form_with model: @public, url: admin_public_path, local:true do |f| %>
-      <div class="field text-center mt-5">
-        <%= f.label :employee_id, "社員ID" %>
-        <%= @public.employee_id %>
+ <div class="container px-5 px-sm-0 mt-3">
+   <div class ="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mt-5 mx-auto">
+      <h2 class="text-center"><strong>従業員情報</strong></h2>
+        <%= form_with model: @public, url: admin_public_path, local:true do |f| %>
+        <div class="field text-center mt-5">
+          <%= f.label :employee_id, "社員ID" %>
+          <%= @public.employee_id %>
+        </div>
+        <div class="field text-center mt-3">
+          <%= f.label :name, "氏名" %>
+          <%= f.text_field :name, placeholder:"令和太郎" %>
+        </div>
+        <div class="field text-center mt-3">
+          <%= f.label :shop_id, "店名" %>
+          <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => @public.shop_id %>
+        </div>
+        <div class="field text-center mt-3">
+          <%= f.label :勤務ステータス %></br>
+          <%= f.radio_button :is_working, true %>
+          <%= f.label :is_working, "在職中", value: true %>
+          &nbsp;
+          <%= f.radio_button :is_working, false %>
+          <%= f.label :is_working, "退職済", value: false %>
+        </div>
+         <div class="form-group text-center mt-4">
+          <%= f.submit "変更を保存",class: "btn btn-success" %>
+        </div>
+        <% end %>
       </div>
-      <div class="field text-center mt-3">
-        <%= f.label :name, "氏名" %>
-        <%= f.text_field :name, placeholder:"令和太郎" %>
-      </div>
-      <div class="field text-center mt-3">
-        <%= f.label :shop_id, "店名" %>
-        <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => @public.shop_id %>
-      </div>
-      <div class="field text-center mt-3">
-        <%= f.label :勤務ステータス %></br>
-        <%= f.radio_button :is_working, true %>
-        <%= f.label :is_working, "在職中", value: true %>
-        &nbsp;
-        <%= f.radio_button :is_working, false %>
-        <%= f.label :is_working, "退職済", value: false %>
-      </div>
-       <div class="form-group text-center mt-4">
-        <%= f.submit "変更を保存",class: "btn btn-success" %>
-      </div>
-      <% end %>
-    </div>
+  </div>
 </div>
