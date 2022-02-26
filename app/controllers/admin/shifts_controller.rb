@@ -3,9 +3,10 @@ class Admin::ShiftsController < ApplicationController
   def new
     @shift = Shift.new
   end
-  
+
   def index
-    #投稿月度が近い順に表示するようにソート
+    # 投稿月度が近い順に表示するようにソート
+    # sqliteではorder.("year_month")で問題ないがMySQlではyear_monthだけではどのカラムか特定できずエラーが出ていたため、shifts.year_monthに
     @shifts = Shift.order("shifts.year_month DESC").includes(:shop).page(params[:page]).per(6)
   end
 
@@ -13,7 +14,7 @@ class Admin::ShiftsController < ApplicationController
     @shift = Shift.new(shift_params)
     # binding.pry
     # データをdate型で取得していないからTime.zone.parseでdate型に変換.strftimeで文字列で保存
-    @shift.year_month = (shift_params["year_month(1i)"]) + "-" + (shift_params["year_month(2i)"])
+    @shift.year_month = shift_params["year_month(1i)"] + "-" + shift_params["year_month(2i)"]
     if @shift.save
       flash[:notice] = "シフトを投稿しました"
       redirect_back(fallback_location: root_path)
@@ -29,6 +30,7 @@ class Admin::ShiftsController < ApplicationController
   end
 
   private
+
   def shift_params
     params.require(:shift).permit(:year_month, :shop_id, :image)
   end

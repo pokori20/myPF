@@ -1,32 +1,39 @@
-<div class="row">
-  <div class="col mx-auto text-center">
-    <h2 class="mt-5"><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
-    <table class="table table-bordered mt-5">
-        <tr>
-          <th nowrap class="table-info">日付</th>
-          <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
-            <td class="table-info"><%= date.strftime("%-d") %></td>
-          <% end %>
-          <td nowrap class="table-info">コメント</th>
-        </tr>
-        <tr>
-          <th nowrap class="table-success">曜日</th>
-          <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
-            <td class="table-success"><%= ["日", "月", "火", "水", "木", "金", "土"][date.wday] %></td>
-           <% end %>
-        </tr>
-        <% @publics.each do |public| %>
-        <tr>
-          <th nowrap><%= public.name %></th>
-          <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+<div class="container-fluid px-5 px-sm-0 mt-3">
+  <div class="row">
+    <div class="col mx-auto ">
+      <h2 class="text-center mt-5"><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
+      <table class="table table-bordered mt-5">
+          <tr>
+            <th nowrap class="table-info">日付</th>
+            <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+              <td class="table-info"><%= date.strftime("%-d") %></td>
+            <% end %>
+            <td nowrap class="table-info">コメント</th>
+          </tr>
+          <tr>
+            <th nowrap class="table-success">曜日</th>
+            <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+              <td class="table-success"><%= ["日", "月", "火", "水", "木", "金", "土"][date.wday] %></td>
+             <% end %>
+          </tr>
+          <% @publics.each do |public| %>
+          <tr>
+            <th nowrap><%= public.name %></th>
+            <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+              <td>
+                  <% if Off.find_by(public_id: public.id, date: date.strftime("%Y-%m-%d")) %>
+                    休
+                  <% end %>
+              </td>
+            <% end %>
             <td>
-                <% if Off.find_by(public_id: public.id, date: date.strftime("%Y-%m-%d")) %>
-                  休
-                <% end %>
+              <% if Comment.exists?(public_id: public.id, year_month: Time.current.next_month.strftime("%Y-%-m") ) %>
+                <%= Comment.find_by(public_id: public.id, year_month: Time.current.next_month.strftime("%Y-%-m")).remarks %>
+              <% end %>
             </td>
+          </tr>
           <% end %>
-        </tr>
-        <% end %>
-    </table>
+      </table>
+    </div>
   </div>
-</div
+</div>

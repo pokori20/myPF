@@ -1,9 +1,11 @@
-<div class="row" >
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto text-center my-5">
-    <h1 class="my-5"><strong>所属店 : <%= current_public.shop.shop_name %></strong></h1>
-    <h1 class="my-5 bg-secondary text-light"><%= link_to "今月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.strftime("%Y-%-m")}), class:"text-reset" %></h1>
-    <h1 class="my-5 bg-secondary text-light"><%= link_to "来月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.next_month.strftime("%Y-%-m")}), class:"text-reset" %></h1>
-    <h1 class="my-5 bg-secondary text-light"><%= link_to "休み希望",new_off_path, class:"text-reset" %></h1>
-    <h4>休み希望の締め切りは毎月20日です!</h4>
+<div class="container px-5 px-sm-0 mt-3">
+  <div class="row" >
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto text-center my-5">
+      <h1 class="my-5"><strong>所属店 : <%= current_public.shop.shop_name %></strong></h1>
+      <h1 class="my-5 bg-secondary text-light"><%= link_to "今月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.strftime("%Y-%-m")}), class:"text-reset" %></h1>
+      <h1 class="my-5 bg-secondary text-light"><%= link_to "来月のシフト", shift_path(current_public.shop_id,{year_month: Time.current.next_month.strftime("%Y-%-m")}), class:"text-reset" %></h1>
+      <h1 class="my-5 bg-secondary text-light"><%= link_to "休み希望",new_off_path, class:"text-reset" %></h1>
+      <h4>休み希望の締め切りは毎月20日です!</h4>
+    </div>
   </div>
 </div>

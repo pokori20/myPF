@@ -36,7 +36,8 @@ class Admin::PublicsController < ApplicationController
   end
 
   private
+
   def public_params
-    params.require(:public).permit(:name, :employee_id, :shop_id , :is_working, :password)
+    params.require(:public).permit(:name, :employee_id, :shop_id, :is_working, :password)
   end
 end
