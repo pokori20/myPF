@@ -20,6 +20,7 @@ class Admin::ShiftsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       flash.now[:alert] = "入力内容を確認してください"
+      @shift = Shift.new
       render :new
     end
   end
