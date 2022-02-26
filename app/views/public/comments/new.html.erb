@@ -1,20 +1,22 @@
-<div class = "row">
-  <div class = "col text-center">
-    <h2 class="mt-5"><strong><%= Time.current.next_month.strftime("%-m")%>月度　コメント入力ページ</strong></h2>
+<div class="container px-5 px-sm-0 mt-3">
+  <div class = "row">
+    <div class = "col text-center">
+      <h2 class="mt-5"><strong><%= Time.current.next_month.strftime("%-m")%>月度　コメント入力ページ</strong></h2>
 
-    <P class="mt-3">コメントは最大50文字まで</P>
-    <% if Comment.exists?(public_id: current_public.id, year_month: Time.current.next_month.strftime("%Y-%-m") ) %>
-    <!--すでにコメントを投稿済の場合upadate用のフォームを設置-->
-      <%= form_with model: @comment, url: comment_path(@comment), local: true do |f| %>
-        <%= f.text_area :remarks, rows:'4',style: "width:30%" %></br>
-        <%= f.submit "送信", class: "btn btn-success mt-3" %>
+      <P class="mt-3">コメントは最大50文字まで</P>
+      <% if Comment.exists?(public_id: current_public.id, year_month: Time.current.next_month.strftime("%Y-%-m") ) %>
+      <!--すでにコメントを投稿済の場合upadate用のフォームを設置-->
+        <%= form_with model: @comment, url: comment_path(@comment), local: true do |f| %>
+          <%= f.text_area :remarks, rows:'4',style: "width:30%" %></br>
+          <%= f.submit "送信", class: "btn btn-success mt-3" %>
+        <% end %>
+      <% else %>
+      <!--コメントを投稿していない場合create用のフォームを設置-->
+        <%= form_with model: @comment, url: comments_path, local: true do |f| %>
+          <%= f.text_area :remarks, rows:'4',style: "width:30%" %></br>
+          <%= f.submit "送信", class: "btn btn-success mt-3" %>
+        <% end %>
       <% end %>
-    <% else %>
-    <!--コメントを投稿していない場合create用のフォームを設置-->
-      <%= form_with model: @comment, url: comments_path, local: true do |f| %>
-        <%= f.text_area :remarks, rows:'4',style: "width:30%" %></br>
-        <%= f.submit "送信", class: "btn btn-success mt-3" %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
