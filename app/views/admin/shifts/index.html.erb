@@ -1,27 +1,29 @@
-<div class="row">
-  <div class="col-lg-7 mx-auto">
-    <h2 class="mt-5 text-center"><strong>シフト一覧</strong></h2>
-      <div class="search_form text-center mt-3">
-        <%= form_with url: admin_search_path, method: :get, local:true do |f| %>
-        <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--" %>
-        <%= f.submit'検索' %>
-        <% end %>
-      </div>
-    <table class="table mt-4">
-      <thead class="table-info">
-        <tr>
-          <th>月度</th><th>店舗名</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @shifts.each do |shift| %>
-        <tr>
-          <td><strong><%= shift.year_month %>月度</strong></td>
-          <td><%= link_to shift.shop.shop_name, admin_shift_path(shift.shop_id,{year_month: shift.year_month}) %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate @shifts %>
+<div class="container px-5 px-sm-0 mt-3">
+  <div class="row">
+    <div class="col-lg-7 mx-auto">
+      <h2 class="mt-5 text-center"><strong>シフト一覧</strong></h2>
+        <div class="search_form text-center mt-3">
+          <%= form_with url: admin_search_path, method: :get, local:true do |f| %>
+          <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--" %>
+          <%= f.submit'検索' %>
+          <% end %>
+        </div>
+      <table class="table mt-4">
+        <thead class="table-info">
+          <tr>
+            <th>月度</th><th>店舗名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shifts.each do |shift| %>
+          <tr>
+            <td><strong><%= shift.year_month %>月度</strong></td>
+            <td><%= link_to shift.shop.shop_name, admin_shift_path(shift.shop_id,{year_month: shift.year_month}) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @shifts %>
+    </div>
   </div>
 </div>

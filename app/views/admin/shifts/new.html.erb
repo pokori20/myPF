@@ -1,20 +1,22 @@
-<div class ="row">
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mt-5 mx-auto">
-    <h2 class="text-center"><strong>シフト投稿</strong></h2>
-    <%= form_with model: @shift, url: admin_shifts_path, local:true do |f| %>
-      <div class = "form-group text-center mt-5">
-        <%= f.label :"年月" %>
-        <%= f.date_select :year_month,use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year+10, discard_day:true, style: "width:100%" %>
-      </div>
-      <div class = "form-group text-center mt-5">
-        <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, { prompt: "店舗を選択してください" } %>
-      </div>
-      <div class = "form-group text-center mt-5">
-        <%= f.attachment_field :image %>
-      </div>
-      <div class = "form-group text-center mt-5">
-        <%= f.submit '変更を保存',class: "btn btn-success" %>
-      </div>
-    <% end %>
+<div class="container px-5 px-sm-0 mt-3">
+  <div class ="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mt-5 mx-auto">
+      <h2 class="text-center"><strong>シフト投稿</strong></h2>
+      <%= form_with model: @shift, url: admin_shifts_path, local:true do |f| %>
+        <div class = "form-group text-center mt-5">
+          <%= f.label :"年月" %>
+          <%= f.date_select :year_month,use_month_numbers: true, start_year:Time.now.year, end_year:Time.now.year+10, discard_day:true, style: "width:100%" %>
+        </div>
+        <div class = "form-group text-center mt-5">
+          <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, { prompt: "店舗を選択してください" } %>
+        </div>
+        <div class = "form-group text-center mt-5">
+          <%= f.attachment_field :image %>
+        </div>
+        <div class = "form-group text-center mt-5">
+          <%= f.submit '変更を保存',class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
