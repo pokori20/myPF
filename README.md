@@ -1,7 +1,13 @@
 # Myshift
 
+## リンク先
+一般ユーザー機能
+<http://my-shift.site/>
+管理者機能
+<http://my-shift.site/admin/sign_in>
+
 ## サイト概要
-このサイトはシフト作成業務を効率化するサイトです。  
+このサイトはシフト作成業務を効率化するサイトです。
 従業員が自身のスマートフォンやPCでいつでもシフトを確認できる機能や、
 従業員が休み希望を報告し集計する機能が搭載されています。
 
@@ -23,11 +29,11 @@
 - シフトを確認したいとき
 
 ## 設計書
-ER図  
-<https://drive.google.com/file/d/1SnSfgmh7POJ2-auK2ebLB-0QvzNZfjTV/view?usp=sharing>  
-テーブル定義書  
-<https://docs.google.com/spreadsheets/d/1HFCqg-SrBr293HeMzqS6DBj_IdUxNkafFMkkOzsIagI/edit?usp=sharing>  
-アプリケーション詳細設計  
+ER図
+<https://drive.google.com/file/d/1SnSfgmh7POJ2-auK2ebLB-0QvzNZfjTV/view?usp=sharing>
+テーブル定義書
+<https://docs.google.com/spreadsheets/d/1HFCqg-SrBr293HeMzqS6DBj_IdUxNkafFMkkOzsIagI/edit?usp=sharing>
+アプリケーション詳細設計
 <https://docs.google.com/spreadsheets/d/1BhLLVtydZw2dKTQqCp8bIVYxLDDpxAWUiaAz2rrs2Ro/edit?usp=sharing>
 
 
