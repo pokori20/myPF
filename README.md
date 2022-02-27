@@ -2,7 +2,7 @@
 
 ## リンク先
 一般ユーザー機能
-<http://my-shift.site/>
+<http://my-shift.site/></br>
 管理者機能
 <http://my-shift.site/admin/sign_in>
 
