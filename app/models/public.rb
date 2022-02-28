@@ -24,4 +24,10 @@ class Public < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+  
+    # 退職済のアカウントでのログインを防ぐため
+  def active_for_authentication?
+    super && (is_working == true)
+  end
+  
 end
