@@ -16,7 +16,7 @@
           <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => @public.shop_id %>
         </div>
         <div class="field text-center mt-3">
-          <%= f.label :勤務ステータス %></br>
+          <%= f.label :勤務ステータス %><br>
           <%= f.radio_button :is_working, true %>
           <%= f.label :is_working, "在職中", value: true %>
           &nbsp;

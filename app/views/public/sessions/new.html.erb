@@ -6,14 +6,14 @@
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field my-4">
-            <%= f.label :"社員ID" %><br />
+            <%= f.label :"社員ID" %><br>
             <%= f.text_field :employee_id, autofocus: true, class: "form-control" %>
           </div>
           <div class="field　my-4">
-            <%= f.label :"パスワード" %><br />
+            <%= f.label :"パスワード" %><br>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
-          <div class="actions my-4 text-center" >
+          <div class="actions my-4 text-center">
             <%= f.submit "ログイン" %>
           </div>
         <% end %>
