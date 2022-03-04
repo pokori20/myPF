@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     # 検索機能
     get '/search', to: 'searches#search'
     post '/guest_sign_in', to: 'guests#guest_sign_in'
+    # シフトパターン
+    resources :patterns, only: [:index, :create, :destroy, :update]
   end
 
   # 従業員用

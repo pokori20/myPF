@@ -17,10 +17,13 @@
           </li>
          <% elsif admin_signed_in? %>
            <li class="nav-item mx-5 my-2 text-light">
-             <h4><%= Date.today %></h4>
+             <h4>Today <%= Date.today %></h4>
            </li>
            <li class="nav-item">
              <%= link_to "シフト投稿", new_admin_shift_path, class: 'btn btn-outline-light fas fa-gear mx-3 my-1' %>
+           </li>
+           <li class="nav-item">
+             <%= link_to "シフトパターン", admin_patterns_path, class: 'btn btn-outline-light fas fa-gear mx-3 my-1' %>
            </li>
            <li class="nav-item">
              <%= link_to "店舗一覧", admin_shops_path, class: 'btn btn-outline-light fas fa-home mx-3 my-1' %>

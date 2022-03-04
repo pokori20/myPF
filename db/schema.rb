@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 2022_03_01_141208) do
   end
 
   create_table "patterns", force: :cascade do |t|
+    t.string "alphabet"
+    t.float "hours"
+    t.string "shift_pattern"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
