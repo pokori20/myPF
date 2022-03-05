@@ -1,31 +1,31 @@
  <div class="container px-5 px-sm-0 mt-3">
    <div class ="row">
-    <h2>シフトパターン一覧</h2>
-    <%= @patterns.each do |pattern| %>
-      <div class = "col">
+     <div class = "col mx-auto">
+    <h2 class="text-center mt-5"><strong>シフトパターン一覧</strong></h2>
+    <% @patterns.each do |pattern| %>
         <div class ="wrap">
           <%= pattern.alphabet %>
           <%= pattern.hours %>
           <%= pattern.shift_pattern %>
         </div>
-      </div>
     <% end %>
     <%= form_with model: @pattern, url: admin_patterns_path, local:true do |f| %>
       <div class = "form-group text-center mt-5">
-        <%= f.label :"記号" %>
-        <%#= f.select :alphabet,[[A, A], [B, B], [C, C], [D, D], [E, E], [F, F], [G, G], [H, H], [I, I], [J, J]] %>
+        <%= f.label :"記号　　　　　",class: "mr-5" %>
+        <%= f.select :alphabet,('A'..'Z') %>
       </div>
       <div class = "form-group text-center mt-5">
-        <%= f.label :"就業時間" %>
+        <%= f.label :"　就業時間　",class: "ml-1 mr-5" %>
         <%= f.text_field :hours, placeholder:"5.5" %>
       </div>
       <div class = "form-group text-center mt-5">
-        <%= f.label :"シフトパターン" %>
+        <%= f.label :"シフトパターン　　" %>
         <%= f.text_field :shift_pattern, placeholder:"10:00~16:00" %>
       </div>
       <div class = "form-group text-center mt-5">
         <%= f.submit '変更を保存',class: "btn btn-success" %>
       </div>      
     <% end %>
+    </div>
   </div>
 </div>
