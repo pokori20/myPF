@@ -2,7 +2,7 @@ class Admin::PatternsController < ApplicationController
   before_action :authenticate_admin!
   def index
     @patterns = Pattern.all
-    @patten = Pattern.new
+    @pattern = Pattern.new
   end
 
   def create
@@ -16,7 +16,7 @@ class Admin::PatternsController < ApplicationController
       render :index
     end
   end
-  
+
   def update
     @pattern = Pattern.find(params[:id])
     if @pattern.update
@@ -28,7 +28,7 @@ class Admin::PatternsController < ApplicationController
       render :index
     end
   end
-  
+
   def destroy
     @pattern = Pattern.find(params[:id])
     @pattern.destroy

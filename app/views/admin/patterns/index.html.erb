@@ -3,10 +3,11 @@
      <div class = "col mx-auto">
     <h2 class="text-center mt-5"><strong>シフトパターン一覧</strong></h2>
     <% @patterns.each do |pattern| %>
-        <div class ="wrap">
-          <%= pattern.alphabet %>
-          <%= pattern.hours %>
-          <%= pattern.shift_pattern %>
+        <div class ="wrap text-center mx-2">
+          <u><strong><%= pattern.alphabet %></strong><br>
+          <%= pattern.hours %>時間<br>
+          <%= pattern.shift_pattern %><br>
+          <%= link_to "削除", admin_pattern_path(pattern.id), method: :delete, class:"btn btn-danger" %></u>
         </div>
     <% end %>
     <%= form_with model: @pattern, url: admin_patterns_path, local:true do |f| %>
@@ -23,7 +24,7 @@
         <%= f.text_field :shift_pattern, placeholder:"10:00~16:00" %>
       </div>
       <div class = "form-group text-center mt-5">
-        <%= f.submit '変更を保存',class: "btn btn-success" %>
+        <%= f.submit '新規登録',class: "btn btn-success" %>
       </div>      
     <% end %>
     </div>
