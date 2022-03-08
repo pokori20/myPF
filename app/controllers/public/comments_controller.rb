@@ -20,7 +20,9 @@ class Public::CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update
+    @comment.update(comment_params)
+    flash[:notice] = "コメントを更新しました。"
+    redirect_back(fallback_location: root_path)
   end
 
   private

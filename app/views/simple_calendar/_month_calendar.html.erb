@@ -21,7 +21,7 @@
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if Off.exists?(public_id: current_public.id, date: day) %>
               <!--休み希望申請済の場合、取消を配置-->
-                <% passed_block.call day, sorted_events.fetch(day, []) %></br>
+                <% passed_block.call day, sorted_events.fetch(day, []) %><br>
                 <%= link_to "〇", delete_off_path({date: day}), method: :delete, class: "btn btn-primary" %>
               <% else %>
               <!--休み希望未申請の場合、申請を配置-->

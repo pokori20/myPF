@@ -1,0 +1,32 @@
+ <div class="container px-5 px-sm-0 mt-3">
+   <div class ="row">
+     <div class = "col mx-auto">
+    <h2 class="text-center mt-5"><strong>シフトパターン一覧</strong></h2>
+    <% @patterns.each do |pattern| %>
+        <div class ="wrap text-center mx-2">
+          <u><strong><%= pattern.alphabet %></strong><br>
+          <%= pattern.hours %>時間<br>
+          <%= pattern.shift_pattern %><br>
+          <%= link_to "削除", admin_pattern_path(pattern.id), method: :delete, class:"btn btn-danger" %></u>
+        </div>
+    <% end %>
+    <%= form_with model: @pattern, url: admin_patterns_path, local:true do |f| %>
+      <div class = "form-group text-center mt-5">
+        <%= f.label :"記号　　　　　",class: "mr-5" %>
+        <%= f.select :alphabet,('A'..'Z') %>
+      </div>
+      <div class = "form-group text-center mt-5">
+        <%= f.label :"　就業時間　",class: "ml-1 mr-5" %>
+        <%= f.text_field :hours, placeholder:"5.5" %>
+      </div>
+      <div class = "form-group text-center mt-5">
+        <%= f.label :"シフトパターン　　" %>
+        <%= f.text_field :shift_pattern, placeholder:"10:00~16:00" %>
+      </div>
+      <div class = "form-group text-center mt-5">
+        <%= f.submit '新規登録',class: "btn btn-success" %>
+      </div>      
+    <% end %>
+    </div>
+  </div>
+</div>

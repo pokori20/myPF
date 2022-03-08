@@ -12,11 +12,11 @@
         <%= f.text_field :name, placeholder:"令和太郎", class: "form-control" %>
       </div>
       <div class="field text-center mt-3">
-        <%= f.label :shop_id, "店名" %></br>
+        <%= f.label :shop_id, "店名" %><br>
         <%= f.collection_select :shop_id, Shop.all, :id, :shop_name, :prompt => "--選択してください--", class: "form-control" %>
       </div>
       <div class="field text-center mt-3">
-        <%= f.label :勤務ステータス %></br>
+        <%= f.label :勤務ステータス %><br>
         <%= f.radio_button :is_working, true %>
         <%= f.label :is_working, "在職中", value: true %>
         &nbsp;
@@ -24,10 +24,10 @@
         <%= f.label :is_working, "退職済", value: false %>
       </div>
       <div class="field mt-3">
-        <%= f.label :"パスワード" %></br>
+        <%= f.label :"パスワード" %><br>
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
-        <br/>
+        <br>
       <div class="form-group text-center">
         <%= f.submit "新規登録",class: "btn btn-secondary " %>
       </div>
