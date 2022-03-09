@@ -20,22 +20,22 @@
              <h4>Today <%= Date.today %></h4>
            </li>
            <li class="nav-item">
-             <%= link_to "シフト投稿", new_admin_shift_path, class: 'btn btn-outline-light fas fa-gear mx-3 my-1' %>
+             <%= link_to " シフト投稿", new_admin_shift_path, class: 'btn btn-outline-light fas fa-paste mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to "シフトパターン", admin_patterns_path, class: 'btn btn-outline-light fas fa-gear mx-3 my-1' %>
+             <%= link_to " シフトパターン", admin_patterns_path, class: 'btn btn-outline-light fas fa-cog mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to "店舗一覧", admin_shops_path, class: 'btn btn-outline-light fas fa-home mx-3 my-1' %>
+             <%= link_to " 店舗一覧", admin_shops_path, class: 'btn btn-outline-light fas fa-home mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to "従業員一覧", admin_publics_path, class: 'btn btn-outline-light fas fa-users mx-3 my-1' %>
+             <%= link_to " 従業員一覧", admin_publics_path, class: 'btn btn-outline-light fas fa-users mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to "シフト一覧", admin_shifts_path, class:'btn btn-outline-light fas fa-calendar mx-3 my-1' %>
+             <%= link_to " シフト一覧", admin_shifts_path, class:'btn btn-outline-light fas fa-calendar mx-3 my-1' %>
            </li>
            <li class="nav-item">
-             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light fas fa-sign-out-alt mx-3 my-1' %>
+             <%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light fas fa-sign-out-alt mx-3 my-1' %>
            </li>
          <% else %>
 

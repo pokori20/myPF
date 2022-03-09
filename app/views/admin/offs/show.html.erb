@@ -1,4 +1,5 @@
-<div class="container-fluid px-5 px-sm-0 mt-3">
+<!--container-fluidにcssで最大幅を適用するためにmaxWidthというclassを与える-->
+<div class="container-fluid maxWidth px-5 px-sm-0 mt-3">
   <div class="row">
     <div class="col mx-auto text-center">
       <h2 class="mt-5"><%= Time.current.next_month.strftime("%-m")%>月休み希望</h2>
@@ -13,6 +14,7 @@
           <tr>
             <th nowrap class="table-success">曜日</th>
             <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
+            <!--[0..6]の配列を[日..土]の配列に置換-->
               <td class="table-success"><%= ["日", "月", "火", "水", "木", "金", "土"][date.wday] %></td>
              <% end %>
           </tr>
@@ -34,6 +36,14 @@
           </tr>
           <% end %>
       </table>
+      <% @patterns.each do |pattern| %>
+        <div class ="wrap text-center mx-2">
+          <u><strong><%= pattern.alphabet %></strong><br>
+          <%= pattern.hours %>時間<br>
+          <%= pattern.shift_pattern %><br>
+          </u>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
