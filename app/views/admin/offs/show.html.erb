@@ -24,6 +24,7 @@
             <% (Time.current.next_month.beginning_of_month.to_datetime..Time.current.next_month.end_of_month.to_datetime).each do |date| %>
               <td>
                   <% if Off.find_by(public_id: public.id, date: date.strftime("%Y-%m-%d")) %>
+                  <!--休み希望申請済の場合-->
                     休
                   <% end %>
               </td>
